@@ -6,129 +6,161 @@
     <title>Card Flip</title>
 
     <style>
-      .card-container {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
+            .card-container {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            }
 
-      .card {
-        width: 15%;
-        height: 8rem;
-        position: relative;
+            .card {
+              width: 15%;
+              height: 8rem;
+              position: relative;
 
-        perspective: 150rem;
-        -moz-perspective: 150rem;
-      }
-      .card-side {
-        width: 100%;
-        height: 100%;
-        border-radius: 3px;
+              perspective: 150rem;
+              -moz-perspective: 150rem;
+            }
+            .card-side {
+              width: 100%;
+              height: 100%;
+              border-radius: 3px;
 
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            }
 
-      .card--front-1 {
-        background-color: blue;
-      }
+            .card--front-1 {
+              background-color: blue;
+            }
 
-      .card--front-2 {
-        background-color: red;
-      }
+            .card--front-2 {
+              background-color: red;
+            }
 
-      .card--front-3 {
-        background-color: orange;
-      }
+            .card--front-3 {
+              background-color: orange;
+            }
 
-      .card:hover .card--front {
-        transform: rotateY(-180deg);
-      }
+            .card:hover .card--front {
+              transform: rotateY(-180deg);
+            }
 
-      .card:hover .card--back {
-        transform: rotateY(0deg);
-      }
+            .card:hover .card--back {
+              transform: rotateY(0deg);
+            }
 
-      .card--front {
-        transition: all 0.8s ease;
-        position: absolute;
-        top: 0;
-        left: 0;
-        backface-visibility: hidden;
-        border-radius: 3px;
-        overflow: hidden;
-        box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15);
-      }
+            .card--front {
+              transition: all 0.8s ease;
+              position: absolute;
+              top: 0;
+              left: 0;
+              backface-visibility: hidden;
+              border-radius: 3px;
+              overflow: hidden;
+              box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15);
+            }
 
-      .card--back {
-        transition: all 0.8s ease;
-        position: absolute;
-        top: 0;
-        left: 0;
-        backface-visibility: hidden;
-        border-radius: 3px;
-        overflow: hidden;
-        box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15);
+            .card--back {
+              transition: all 0.8s ease;
+              position: absolute;
+              top: 0;
+              left: 0;
+              backface-visibility: hidden;
+              border-radius: 3px;
+              overflow: hidden;
+              box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15);
 
-        transform: rotateY(180deg);
-      }
+              transform: rotateY(180deg);
+            }
 
-      .card--back-1 {
-        background-color: gold;
-      }
+            .card--back-1 {
+              background-color: gold;
+            }
 
-      .card--back-2 {
-        background-color: fuchsia;
-      }
+            .card--back-2 {
+              background-color: fuchsia;
+            }
 
-      .card--back-3 {
-        background-color: slategray;
-      }
+            .card--back-3 {
+              background-color: slategray;
+            }
 
-      .card--heading {
-        color: #eee;
-        font-size: 1rem;
-        font-weight: 300;
-        text-transform: uppercase;
-        text-align: center;
-      }
+            .card--heading {
+              color: #eee;
+              font-size: 1rem;
+              font-weight: 300;
+              text-transform: uppercase;
+              text-align: center;
+            }
 
-      .loader-container {
-        width: 20rem;
-        height: 6rem;
-        margin-top: 3rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.8rem;
-      }
+            .container {
+              display: flex;
+              /* align-items: center; */
+              justify-content: center;
+            }
 
-      span {
-        width: 24px;
-        height: 24px;
-        border-radius: 50%;
-        background-color: #fcc419;
-        transform-origin: 50%;
-        animation: bounce 1s ease-out infinite;
-      }
+            .loader-container {
+              width: 20rem;
+              height: 6rem;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              gap: 0.8rem;
+            }
 
-      @keyframes bounce {
-        0%,
+            span {
+              width: 24px;
+              height: 24px;
+              border-radius: 50%;
+              background-color: #fcc419;
+              transform-origin: 50%;
+              animation: bounce 1s ease-out infinite;
+            }
+
+            @keyframes bounce {
+              0%,
+              100% {
+                transform: translateY(0);
+              }
+              50% {
+                transform: translateY(-20px);
+              }
+            }
+
+            span:nth-child(2) {
+              animation-delay: 0.2s;
+            }
+
+            span:nth-child(3) {
+              animation-delay: 0.4s;
+            }
+
+            .loader {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              height: 8rem;
+              }
+
+              .circle {
+                background-color: #fff;
+                width: 32px;
+                height: 32px;
+                border: 3px solid blue;
+                border-top-color: transparent;
+                /* border-right-color: transparent; */
+                border-radius: 50%;
+                animation: rotate 1s infinite linear;
+              }
+
+      @keyframes rotate {
+        0% {
+          transform: rotate(0deg);
+        }
         100% {
-          transform: translateY(0);
-        }
-        50% {
-          transform: translateY(-20px);
-        }
-      }
-
-      span:nth-child(2) {
-        animation-delay: 0.2s;
-      }
-
-      span:nth-child(3) {
-        animation-delay: 0.4s;
+          transform: rotate(360deg);
+        }
       }
     </style>
   </head>
@@ -165,10 +197,16 @@
       </div>
     </div>
 
-    <div class="loader-container">
-      <span class="first"></span>
-      <span class="second"></span>
-      <span class="third"></span>
+    <div class="container">
+      <div class="loader-container">
+        <span class="first"></span>
+        <span class="second"></span>
+        <span class="third"></span>
+      </div>
+
+      <div class="loader">
+        <span class="circle"></span>
+      </div>
     </div>
   </body>
 </html>
